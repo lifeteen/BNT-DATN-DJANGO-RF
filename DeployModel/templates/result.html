@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title></title>
+    </head>
+
+    <body>
+        <h1>Kết Quả</h1>
+        <h3> Dữ liệu đã nhập {{lis}}</h3>
+        <h3> Dự Đoán lượng mưa là {{ans}} (mm)</h3>
+        <h3 id="label">Mưa </h3>
+        <!-- This is result is {{ans}} -->
+    <a href="{% url 'home' %}">Click go to home</a>
+
+
+    </body>
+    <script>
+    var kq = {{ans}}
+    var alert ;
+    if(kq>=140)
+    {
+        alert = "Mưa mùa"
+    }
+    else if(kq<=16 && kq >=0)
+    {
+    alert = "Mưa nhỏ"
+    }
+    else if(kq>16&&kq<50)
+    {
+        alert = "Mưa vừa"
+    }
+    else if(kq>=51 && kq<=100)
+    {
+        alert="Mưa to"
+    }
+    else if(kq>120 && kq<140)
+    {
+        alert = "Mưa rất to"
+    }
+    document.getElementById("label").innerHTML= alert;
+        console.log(alert)
+    </script>
+ </html>
